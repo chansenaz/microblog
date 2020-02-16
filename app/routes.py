@@ -2,6 +2,7 @@ from flask import render_template, flash, redirect, url_for
 from app import app
 from app.forms import LoginForm
 
+
 @app.route('/')
 @app.route('/index')
 def index():
@@ -23,11 +24,12 @@ def index():
 def login():
     form = LoginForm()
 
-    # The form.validate_on_submit() method does all the form processing work. When the 
-    # browser sends the GET request to receive the web page with the form, this method 
-    # is going to return False, so in that case the function skips the if statement and 
-    # goes directly to render the template in the last line of the function.
-    
+    # The form.validate_on_submit() method does all the form processing work.
+    # When the browser sends the GET request to receive the web page with the
+    # form, this method is going to return False, so in that case the function
+    # skips the if statement and goes directly to render the template in the
+    # last line of the function.
+
     # login information submitted (POST)
     if form.validate_on_submit():
         flash('Login requested for user {}, remember_me={}'.format(
