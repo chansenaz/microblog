@@ -1,6 +1,8 @@
 from flask import Flask
+from config import Config
 
 app = Flask(__name__)
+app.config.from_object(Config)
 
 from app import routes
 
@@ -21,3 +23,8 @@ from app import routes
 # applications. You are going to see that the routes module needs to import the appvariable defined in this 
 # script, so putting one of the reciprocal imports at the bottom avoids the error that results from the 
 # mutual references between these two files.
+
+
+# >>> from microblog import app
+# >>> app.config['SECRET_KEY']
+# 'you-will-never-guess'
